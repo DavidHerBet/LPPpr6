@@ -1,16 +1,16 @@
-task :default => :x
+task :default => :play
 
-desc 'tarea 1'
-task :x do
-  sh "ruby bin/program.rb"
+desc 'Run bin/ppt_main.rb'
+task :bin do
+  sh "ruby -Ilib bin/ppt_main.rb parametro"
 end
 
-desc 'tarea 2'
-task :y do
-  sh "ruby bin/program.rb parametro"
+desc 'Run tests with --format documentation'
+task :test do
+  sh "ruby -Ilib test/ppt_spec.rb"
 end
 
-desc 'tarea 3'
-task :z do
-  sh "ruby test/tc_program.rb"
+desc 'Run tests with format: html'
+task :thtml do
+  sh "ruby -Ilib test/ppt_spec.rb"
 end
