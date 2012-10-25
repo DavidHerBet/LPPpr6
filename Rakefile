@@ -7,7 +7,7 @@ end
 
 desc 'Run tests with --format documentation'
 task :test do
-  sh "ruby -Ilib test/ppt_spec.rb"
+  sh "rspec -Ilib test/ppt_spec.rb --format documentation"
 end
 
 desc 'Run tests with format: html'
