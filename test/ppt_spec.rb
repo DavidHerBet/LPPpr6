@@ -16,4 +16,8 @@ describe PiedraPapelTijeras do
     @ppt.respond_to?("maquina_tira").should == true
   end
   
+  it "Debe existir una lista de tiradas validas" do
+    @ppt.respond_to?("tiradas_validas").should == true
+  end
+  
 end
