@@ -30,4 +30,10 @@ describe PiedraPapelTijeras do
     (@ppt.jugadas.include? @ppt.obtener_humano).should == true
   end
   
+  it "Se debe invocar al metodo obtener_maquina() para recoger la tirada de la maquina y que esta sea valida" do
+    @ppt.maquina_tira = @ppt.jugadas.sample
+    (@ppt.jugadas.include? @ppt.obtener_maquina).should == true
+  end
+  
+  
 end
