@@ -3,19 +3,22 @@
 class PiedraPapelTijeras
   
   def initialize
-    @tiradas_validas = {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel}
-    @jugadas = @tiradas_validas.keys 
+    @jugadas_posibles = {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel}
+    @tiradas_validas = @jugadas_posibles.keys 
   end
   
-  attr_reader :tiradas_validas, :jugadas, :resultado
+  attr_reader :tiradas_validas, :jugadas_posibles, :resultado
   attr_accessor :humano_tira, :maquina_tira
   
   def obtener_humano
-    return humano_tira.to_sym if (jugadas.include? (humano_tira.to_sym))
+    return humano_tira.to_sym if (tiradas_validas.include? (humano_tira.to_sym))
   end
   
   def obtener_maquina
-    return maquina_tira if (jugadas.include? maquina_tira)
+    return maquina_tira if (tiradas_validas.include? maquina_tira)
+  end
+  
+  def jugar
   end
   
 end
