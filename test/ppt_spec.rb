@@ -36,8 +36,23 @@ describe PiedraPapelTijeras do
   end
   
   it "Debe existir una lista de resultados de un juego desde el punto de vista de la maquina" do
-    @ppt.respond_to?("jugar").should == true
+    @ppt.respond_to?("resultados").should == true
+    @ppt.resultados.should == [:gana, :pierde, :empata]
+  end
+  
+  it "Debe existir un resultado para un juego, desde el punto de vista de lamaquina" do
     @ppt.respond_to?("resultado").should == true
   end
+  
+#   it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do
+#     @ppt.jugar("piedra")
+#     
+#   end
+#   
+#   it "Se debe de comprobar que las tiradas de la maquina al ser aleatorias recorren las tres posibilidades" do
+#   end
+#   
+#   it "Se debe comprobar que las tiradas de la maquina y del humano no son siempre la misma" do
+#   end
   
 end
