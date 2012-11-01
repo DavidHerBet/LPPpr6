@@ -25,4 +25,9 @@ describe PiedraPapelTijeras do
     @ppt.respond_to?("resultado").should == true
   end
   
+  it "Se debe invocar al metodo obtener_humano() para recoger la tirada del humano y que esta sea valida" do
+    @ppt.humano_tira = "piedra"
+    (@ppt.jugadas.include? @ppt.obtener_humano).should == true
+  end
+  
 end
