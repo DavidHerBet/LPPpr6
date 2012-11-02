@@ -52,15 +52,23 @@ describe PiedraPapelTijeras do
   end
   
   it "Se debe de comprobar que las tiradas de la maquina al ser aleatorias recorren las tres posibilidades" do
-    jugadas_maquina = []
+    tiradas_maquina = []
     30.times do
       @ppt.jugar("piedra")
-      jugadas_maquina << @ppt.obtener_maquina
+      tiradas_maquina << @ppt.obtener_maquina
     end
-    jugadas_maquina.uniq.size.should >= 3
+    tiradas_maquina.uniq.size.should >= @ppt.tiradas_validas.size
   end
-#   
-#   it "Se debe comprobar que las tiradas de la maquina y del humano no son siempre la misma" do
-#   end
+  
+  it "Se debe comprobar que las tiradas de la maquina y del humano no son siempre la misma" do
+    tiradas_maquina = []
+    tiradas_humano = []
+    30.times do
+      @ppt.jugar(@ppt.tiradas_validas.sample.to_s)
+      tiradas_maquina << @ppt.obtener_maquina
+      tiradas_humano << @ppt.obtener_humano
+    end
+    (tiradas_maquina.uniq.size and tiradas_humano.uniq.size).should >= @ppt.tiradas_validas.size
+  end
   
 end
