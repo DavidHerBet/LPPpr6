@@ -26,7 +26,7 @@ describe PiedraPapelTijeras do
   end
   
   it "Se debe invocar al metodo obtener_humano() para recoger la tirada del humano y que esta sea valida" do
-    @ppt.humano_tira = "piedra"
+    @ppt.humano_tira = "piedra".to_sym
     (@ppt.tiradas_validas.include? @ppt.obtener_humano).should == true
   end
   
@@ -37,17 +37,19 @@ describe PiedraPapelTijeras do
   
   it "Debe existir una lista de resultados de un juego desde el punto de vista de la maquina" do
     @ppt.respond_to?("resultados").should == true
-    @ppt.resultados.should == [:gana, :pierde, :empata]
+    @ppt.resultados.should == {:gana => "Has ganado la partida", 
+                               :pierde => "Has perdido, gana la maquina", 
+                               :empata => "Ha habido un empate"}
   end
   
   it "Debe existir un resultado para un juego, desde el punto de vista de lamaquina" do
     @ppt.respond_to?("resultado").should == true
   end
   
-#   it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do
-#     @ppt.jugar("piedra")
-#     
-#   end
+  it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do
+    @ppt.jugar("piedra")
+    @ppt.resultado.should_not == nil
+  end
 #   
 #   it "Se debe de comprobar que las tiradas de la maquina al ser aleatorias recorren las tres posibilidades" do
 #   end
