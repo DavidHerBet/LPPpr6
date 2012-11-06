@@ -12,5 +12,5 @@ end
 
 desc "Run tests with format: html"
 task :thtml do
-  sh "rspec -Ilib test/ppt_spec.rb"
+  sh "rspec test/ppt_spec.rb --format html > resultados.html"
 end
